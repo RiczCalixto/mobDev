@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PrimeiroProjeto</string>
+    <string name="ninja_id">Ninja</string>
+    <string name="inc_text">Incrementar</string>
+    <string name="dec_text">Decrementar</string>
+    <string name="default_counter_value">0</string>
+</resources>

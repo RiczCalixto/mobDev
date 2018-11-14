@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/decrement_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dec_text"
+        android:onClick="decrementCounter"/>
+
+    <!--gravity: como dispor conteúdo da view-->
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/default_counter_value"
+        android:textSize="140sp"
+        android:background="@color/counter_background"
+        android:textColor="#0000FF"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/increment_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/inc_text"
+        android:onClick="incrementCounter"/>
+
+
+</LinearLayout>
