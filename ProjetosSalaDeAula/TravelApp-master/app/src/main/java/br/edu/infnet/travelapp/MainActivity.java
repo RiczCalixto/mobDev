@@ -51,8 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         // cria o nosso adapter
         adapter = new CustomArrayAdapter(this,
-                            R.layout.support_simple_spinner_dropdown_item,
-                            placesList);
+                            R.layout.support_simple_spinner_dropdown_item, placesList);
 
         // configura nosso adapter no spinner
         spinner.setAdapter(adapter);
