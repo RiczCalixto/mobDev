@@ -122,7 +122,7 @@ public void noComeço () {
     button3.setVisibility(View.VISIBLE);
     score.setVisibility(View.VISIBLE);
 
-    countDownTimer = new CountDownTimer(30000, 1000) {
+    countDownTimer = new CountDownTimer(10000, 1000) {
         @Override
         public void onTick(long millisUntilFinished) {
             updateTimer((int) millisUntilFinished / 1000);
