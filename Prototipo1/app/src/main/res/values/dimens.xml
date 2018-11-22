@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="title_size">24sp</dimen>
+    <dimen name="grande">30sp</dimen>
+    <dimen name="medio">20sp</dimen>
+    <dimen name="margem_entre_texto"> 30dp</dimen>
 </resources>

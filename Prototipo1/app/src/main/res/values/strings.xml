@@ -1,5 +1,12 @@
 <resources>
-    <string name="app_name">Prototipo1</string>
+    <string name="app_name">Music Manager</string>
     <string name="titulo">Music Manager</string>
     <string name="content_description">app title</string>
+    <string name="before_i_forget">Before I Forget</string>
+    <string name="disasterpiece">Disasterpiece</string>
+    <string name="slipknot">Slipknot</string>
+    <string name="add_new_song_text">Adicione nova música</string>
+    <string name="hint_musica">Nome da música</string>
+    <string name="hint_album">Nome do álbum</string>
+    <string name="hint_banda">Nome do(a) cantor(a) ou banda</string>
 </resources>

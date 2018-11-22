@@ -15,12 +15,12 @@ public class CarAdapter extends RecyclerView.Adapter {
     List<Car> carItems;
 
 
-    public CarAdapter(Car[] cars){
-        carItems = new ArrayList<>();
-        for (Car car: cars) {
-            carItems.add(car);
-        }
-    }
+//    public CarAdapter(Car[] cars){
+//        carItems = new ArrayList<>();
+//        for (Car car: cars) {
+//            carItems.add(car);
+//        }
+//    }
 
     public CarAdapter(List<Car> cars){
         carItems = cars;
