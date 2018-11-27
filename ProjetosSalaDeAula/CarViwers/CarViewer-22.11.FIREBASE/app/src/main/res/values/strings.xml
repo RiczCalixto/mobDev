@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CarViewer</string>
+    <string name="car_name_placeholder">Carro de Exemplo</string>
+    <string name="add_car_button_text">Adicionar</string>
+</resources>

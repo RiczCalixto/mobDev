@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_spacing">
+
+    <TextView
+        android:layout_margin="@dimen/text_space"
+        android:id="@+id/make_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fabricante"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+    <TextView
+        android:id="@+id/model_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:text="Modelo"/>
+
+    <TextView
+        android:id="@+id/year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2006"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 32009,76"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"/>
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Excluir"/>
+
+
+
+</LinearLayout>
