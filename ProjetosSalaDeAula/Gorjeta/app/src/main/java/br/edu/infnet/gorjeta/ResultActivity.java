@@ -17,6 +17,7 @@ public class ResultActivity extends AppCompatActivity {
         float billValue = intent.getFloatExtra(MainActivity.BILL_KEY, 0.0f);
         float tipValue = intent.getFloatExtra(MainActivity.TIP_KEY, 0.0f);
 
+
         float total = billValue + tipValue;
 
         TextView billTextView = findViewById(R.id.bill_textview);
