@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ric</string>
+    <string name="slide1_intro">Olá, me chamo Ricardo.</string>
+    <string name="bemvindo_slide1">Seja bem vindo ao meu aplicativo!!</string>
+    <string name="todo">TODO</string>
+    <string name="menu_email">Enviar e-mail</string>
+    <string name="more_about">Mais sobre mim</string>
+</resources>
