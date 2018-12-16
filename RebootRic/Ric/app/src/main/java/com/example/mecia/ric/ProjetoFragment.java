@@ -1,12 +1,22 @@
 package com.example.mecia.ric;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import static java.util.Arrays.asList;
 
 
 /**
@@ -57,14 +67,46 @@ public class ProjetoFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_projeto, container, false);
+        View view = inflater.inflate(R.layout.fragment_projeto, container, false);
+
+        ListView listView = view.findViewById(R.id.listView);
+        final ArrayList<String> projetos = new ArrayList<String>(asList("Brain Trainner. Acerte o maior número de contas em apenas 10 sec.", "Conversor de moeda. Faça a conversão de real para dolar e dolar para real.", "Jogo da Velha"));
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, projetos);
+
+        listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position==0){
+                    Intent intent = new Intent(getActivity(), BrainTrainner.class);
+                    startActivityForResult(intent, 0);
+                } if (position==1){
+                    Intent intent = new Intent(getActivity(), ConversorMoeda.class);
+                    startActivityForResult(intent, 0);
+
+                }if (position==2) {
+                    Intent intent = new Intent(getActivity(), JogoDaVelha.class);
+                    startActivityForResult(intent, 0);
+                }
+                else {
+                Toast.makeText(getContext(), projetos.get(position), Toast.LENGTH_SHORT).show();}
+            }
+        });
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

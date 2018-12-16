@@ -200,6 +200,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
             sharedPreferences.edit().putString("placesLongs", ObjectSerializer.serialize(longitudes)).apply();
 
 
+
         } catch (Exception e){
             e.printStackTrace();
         }

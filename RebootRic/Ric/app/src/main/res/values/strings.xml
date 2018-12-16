@@ -9,5 +9,5 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="academico_text">Graduação em Direito 2014. Pós Graduação com previsão de término em 2020 pela INFNET em desenvolvimento mobile. Tecnologias: Html, Css, Javascript, React, Java, Android.</string>
+    <string name="academico_text">Graduação em Direito pela Puc-Rio e inscrito nos quadros da Ordem de Advogados do Brasil (OAB) desde 2014. Pós Graduação com previsão de término em 2020 pela INFNET em desenvolvimento mobile. Tecnologias: Html, Css, Javascript, React, Java, Android.</string>
 </resources>

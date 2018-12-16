@@ -1,20 +1,19 @@
-package com.example.mecia.conversomoeda;
+package com.example.mecia.ric;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+public class ConversorMoeda extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_conversor_moeda);
     }
-
     public void convertToDolar (View view){
         EditText realToDolar = findViewById(R.id.realToDolar);
         String valorEmReal = realToDolar.getText().toString();

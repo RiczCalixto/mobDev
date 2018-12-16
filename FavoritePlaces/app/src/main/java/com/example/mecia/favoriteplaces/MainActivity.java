@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         longitudes.clear();
         locationsLatLong.clear();
 
+
         try {
 
             placesList = (ArrayList<String>) ObjectSerializer.deserialize(sharedPreferences.getString("placesSaving", ObjectSerializer.serialize(new ArrayList<String>())));
