@@ -21,7 +21,8 @@
         <activity android:name=".IntroActivity" />
         <activity android:name=".BrainTrainner" />
         <activity android:name=".ConversorMoeda" />
-        <activity android:name=".JogoDaVelha"></activity>
+        <activity android:name=".JogoDaVelha" />
+        <activity android:name=".TimerApp"></activity>
     </application>
 
 </manifest>

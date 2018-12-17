@@ -83,7 +83,8 @@ public class ProjetoFragment extends Fragment {
         final ArrayList<String> projetos = new ArrayList<String>(asList(
                 "Brain Trainner. Acerte o maior número de contas em apenas 10 sec.",
                 "Conversor de moeda. Faça a conversão de real para dolar e dolar para real.",
-                "Jogo da Velha"));
+                "Jogo da Velha",
+                "Pomodoro. Após estabelecer o tempo, o app irá emitir um som ao término da contagem."));
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, projetos);
 
         listView.setAdapter(arrayAdapter);
@@ -101,6 +102,9 @@ public class ProjetoFragment extends Fragment {
 
                 }if (position==2) {
                     Intent intent = new Intent(getActivity(), JogoDaVelha.class);
+                    startActivityForResult(intent, 0);
+                } if (position==3) {
+                    Intent intent = new Intent(getActivity(), TimerApp.class);
                     startActivityForResult(intent, 0);
                 }
 
