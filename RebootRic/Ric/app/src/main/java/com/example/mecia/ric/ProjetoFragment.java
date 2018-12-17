@@ -80,7 +80,10 @@ public class ProjetoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_projeto, container, false);
 
         ListView listView = view.findViewById(R.id.listView);
-        final ArrayList<String> projetos = new ArrayList<String>(asList("Brain Trainner. Acerte o maior número de contas em apenas 10 sec.", "Conversor de moeda. Faça a conversão de real para dolar e dolar para real.", "Jogo da Velha"));
+        final ArrayList<String> projetos = new ArrayList<String>(asList(
+                "Brain Trainner. Acerte o maior número de contas em apenas 10 sec.",
+                "Conversor de moeda. Faça a conversão de real para dolar e dolar para real.",
+                "Jogo da Velha"));
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, projetos);
 
         listView.setAdapter(arrayAdapter);
@@ -100,8 +103,8 @@ public class ProjetoFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), JogoDaVelha.class);
                     startActivityForResult(intent, 0);
                 }
-                else {
-                Toast.makeText(getContext(), projetos.get(position), Toast.LENGTH_SHORT).show();}
+
+                Toast.makeText(getContext(), projetos.get(position), Toast.LENGTH_SHORT).show();
             }
         });
 

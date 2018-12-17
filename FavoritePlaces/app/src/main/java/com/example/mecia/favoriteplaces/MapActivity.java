@@ -179,7 +179,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback,
         MainActivity.placesList.add(address);
         MainActivity.locationsLatLong.add(latLng);
 
-        MainActivity.adapter.notifyDataSetChanged();
+        MainActivity.arrayAdapter.notifyDataSetChanged();
 
         SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.mecia.favoriteplaces", Context.MODE_PRIVATE);
 
