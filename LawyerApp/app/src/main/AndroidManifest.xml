@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mecia.ric">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    package="com.example.mecia.lawyerapp">
 
     <application
         android:allowBackup="true"
@@ -18,13 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".IntroActivity" />
-        <activity android:name=".BrainTrainner" />
-        <activity android:name=".ConversorMoeda" />
-        <activity android:name=".JogoDaVelha" />
-        <activity android:name=".TimerApp" />
-        <activity android:name=".AppNews" />
-        <activity android:name=".ArticleActivity"></activity>
     </application>
 
 </manifest>

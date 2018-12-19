@@ -84,7 +84,8 @@ public class ProjetoFragment extends Fragment {
                 "Brain Trainner. Acerte o maior número de contas em apenas 10 sec.",
                 "Conversor de moeda. Faça a conversão de real para dolar e dolar para real.",
                 "Jogo da Velha",
-                "Pomodoro. Após estabelecer o tempo, o app irá emitir um som ao término da contagem."));
+                "Pomodoro. Após estabelecer o tempo, o app irá emitir um som ao término da contagem.",
+                "Leitura dos Artigos disponibilizados no site Hacker News. WebView + SQLite."));
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, projetos);
 
         listView.setAdapter(arrayAdapter);
@@ -105,6 +106,9 @@ public class ProjetoFragment extends Fragment {
                     startActivityForResult(intent, 0);
                 } if (position==3) {
                     Intent intent = new Intent(getActivity(), TimerApp.class);
+                    startActivityForResult(intent, 0);
+                } if (position==4) {
+                    Intent intent = new Intent(getActivity(), AppNews.class);
                     startActivityForResult(intent, 0);
                 }
 

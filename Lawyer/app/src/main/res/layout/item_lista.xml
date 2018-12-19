@@ -2,10 +2,8 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/deletarBotao"
@@ -18,8 +16,21 @@
         android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/closecircle"
+        app:srcCompat="@drawable/close"
         />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/editarBotao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/edit" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -34,26 +45,26 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/musicaTextView"
+            android:id="@+id/numeroTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/grande"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/albumTextView"
+            android:id="@+id/faseTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/medio"
             android:textStyle="italic" />
 
         <TextView
-            android:id="@+id/autorTextView"
+            android:id="@+id/obsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textAllCaps="true"
             android:textSize="@dimen/medio" />
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
 
+</android.support.constraint.ConstraintLayout>
