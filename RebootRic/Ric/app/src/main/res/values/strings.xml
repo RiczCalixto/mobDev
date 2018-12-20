@@ -15,4 +15,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="academico_text">Graduação em Direito pela Puc-Rio e inscrito nos quadros da Ordem de Advogados do Brasil (OAB) desde 2014. Pós Graduação com previsão de término em 2020 pela INFNET em desenvolvimento mobile. Tecnologias: Html, Css, Javascript, React, Java, Android.</string>
     <string name="title_activity_lawyer_app">LawyerApp</string>
+    <string name="profissao_1">Dinâmico, comunicativo e com grande facilidade para trabalhar em equipe.</string>
+    <string name="profissao_2">Esforçado, estudioso e disposto a aprender.</string>
+    <string name="profissao_3">Facilidade em aprender de forma autonoma, com pesquisas e consultas de material técnici, inclusive em outras línguas.</string>
+    <string name="academico_1">Graduação em Direito pela PUC-RIO e inscrito nos quadros da OAB/RJ desde 2014.</string>
+    <string name="academico_2">MIT em Desenvolvimento Mobile pelo instituto INFNET com previsão de término em 2020.</string>
+    <string name="profissao_4">Tecnologias: Html, Css, Javascript, React, Java, Android, Webpack, Git.</string>
 </resources>

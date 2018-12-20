@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="slide_1_dark">#4fc3f7</color>
-    <color name="slide_1_soft">#0093c4</color>
+    <color name="slide_1_soft">#73e8ff</color>
     <color name="menu_background">#8bf6ff</color>
+    <color name="subtitle_color">#000000</color>
 </resources>

@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements ProfissaoFragment
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Meu Portfólio");
         getSupportActionBar().setSubtitle("Ricardo Calixto");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.subtitle_color));
+        toolbar.setSubtitleTextColor(getResources().getColor(R.color.subtitle_color));
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("Profissão"));
