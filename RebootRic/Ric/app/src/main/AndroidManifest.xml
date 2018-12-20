@@ -24,7 +24,11 @@
         <activity android:name=".JogoDaVelha" />
         <activity android:name=".TimerApp" />
         <activity android:name=".AppNews" />
-        <activity android:name=".ArticleActivity"></activity>
+        <activity android:name=".ArticleActivity" />
+        <activity
+            android:name=".LawyerApp"
+            android:label="@string/title_activity_lawyer_app"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

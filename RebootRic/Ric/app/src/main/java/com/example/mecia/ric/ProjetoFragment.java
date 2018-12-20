@@ -85,7 +85,8 @@ public class ProjetoFragment extends Fragment {
                 "Conversor de moeda. Faça a conversão de real para dolar e dolar para real.",
                 "Jogo da Velha",
                 "Pomodoro. Após estabelecer o tempo, o app irá emitir um som ao término da contagem.",
-                "Leitura dos Artigos disponibilizados no site Hacker News. WebView + SQLite."));
+                "Leitura dos Artigos disponibilizados no site Hacker News. WebView + SQLite. Pode demorar um pouco pois faz download do site e monta na webView.",
+                "Lawyer App. SQLite + RecyclerView. Adicionar, editar e deletar processos."));
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, projetos);
 
         listView.setAdapter(arrayAdapter);
@@ -110,7 +111,11 @@ public class ProjetoFragment extends Fragment {
                 } if (position==4) {
                     Intent intent = new Intent(getActivity(), AppNews.class);
                     startActivityForResult(intent, 0);
+                } if (position==5) {
+                    Intent intent = new Intent(getActivity(), LawyerApp.class);
+                    startActivityForResult(intent, 0);
                 }
+
 
                 Toast.makeText(getContext(), projetos.get(position), Toast.LENGTH_SHORT).show();
             }

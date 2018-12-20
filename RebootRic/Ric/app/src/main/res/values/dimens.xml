@@ -2,4 +2,10 @@
 <resources>
     <dimen name="text_size">30sp</dimen>
     <dimen name="text_padding">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="tamanhoMED">24sp</dimen>
+    <dimen name="title_size">24sp</dimen>
+    <dimen name="grande">30sp</dimen>
+    <dimen name="medio">20sp</dimen>
+    <dimen name="margem_entre_texto"> 30dp</dimen>
 </resources>
