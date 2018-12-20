@@ -16,7 +16,7 @@ public class LawyerCliente implements Serializable {
         this.obs = obs;
     }
 
-    public int getID(){return this.id;}
+    public int getId(){return this.id;}
     public String getNumero(){ return this.numero; }
     public String getFase(){ return this.fase; }
     public String getObs(){ return this.obs; }

@@ -16,14 +16,26 @@ public class LawyerClienteDAO {
         gw = LawyerDbGateway.getInstance(ctx);
     }
 
-    public boolean salvar(String numero, String fase, String obs){
+    public boolean salvar (String numero, String fase, String obs){
+        return salvar(0, numero, fase, obs);
+    }
+
+    public boolean salvar(int id, String numero, String fase, String obs){
         ContentValues cv = new ContentValues();
 
         cv.put("Numero", numero);
         cv.put("Fase", fase);
         cv.put("Obs", obs);
-        return gw.getDatabase().insert(TABLE_CLIENTS, null, cv) >0;
+        if(id>0) {
+            return gw.getDatabase().update(TABLE_CLIENTS, cv, "ID=?", new String[]{id + ""}) > 0;
+        }else {
+            return gw.getDatabase().insert(TABLE_CLIENTS, null, cv) > 0;
+        }
 
+    }
+
+    public boolean excluir(int id){
+        return gw.getDatabase().delete(TABLE_CLIENTS, "ID=?", new String[]{ id+ ""}) > 0;
     }
 
     //Retorna todos os clientes armazenados no banco de dados
@@ -40,5 +52,20 @@ public class LawyerClienteDAO {
         }
         cursor.close();
         return clientes;
+    }
+
+    //Retornar último Cliente inserido no banco de dados
+    public LawyerCliente retornarUltimo() {
+        Cursor cursor = gw.getDatabase().rawQuery("SELECT * FROM Clientes ORDER BY ID DESC", null);
+        if (cursor.moveToFirst()) {
+            int id = cursor.getInt(cursor.getColumnIndex("ID"));
+            String numero = cursor.getString(cursor.getColumnIndex("Numero"));
+            String fase = cursor.getString(cursor.getColumnIndex("Fase"));
+            String obs = cursor.getString(cursor.getColumnIndex("Obs"));
+            cursor.close();
+            return new LawyerCliente(id, numero, fase, obs);
+        }
+
+        return null;
     }
 }

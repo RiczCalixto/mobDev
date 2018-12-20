@@ -1,6 +1,6 @@
 package com.example.mecia.lawyer;
 
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,10 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     LawyerClienteAdapter adapter;
+    LawyerCliente clienteEditado = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.includemain).setVisibility(View.INVISIBLE);
                 findViewById(R.id.includecadastro).setVisibility(View.VISIBLE);
                 findViewById(R.id.fab).setVisibility(View.INVISIBLE);
+                EditText numeroInput = (EditText) findViewById(R.id.numeroInput);
+                EditText faseInput = (EditText) findViewById(R.id.faseInput);
+                EditText obsInput = (EditText) findViewById(R.id.obsInput);
+                numeroInput.setText("");
+                faseInput.setText("");
+                obsInput.setText("");
             }
         });
 
@@ -43,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.includemain).setVisibility(View.VISIBLE);
                 findViewById(R.id.includecadastro).setVisibility(View.INVISIBLE);
                 findViewById(R.id.fab).setVisibility(View.VISIBLE);
+
             }
         });
 
@@ -63,23 +72,60 @@ public class MainActivity extends AppCompatActivity {
 
                 //salvar os dados no LawyerClienteDAO
                 LawyerClienteDAO dao = new LawyerClienteDAO(getBaseContext());
-                boolean sucesso = dao.salvar(numero, fase, obs);
-                if(sucesso){
-                    //clear nos campos
-                    numeroInput.setText("");
-                    faseInput.setText("");
-                    obsInput.setText("");
-
-                    Snackbar.make(v, "Salvo!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                    findViewById(R.id.includemain).setVisibility(View.VISIBLE);
-                    findViewById(R.id.includecadastro).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.fab).setVisibility(View.VISIBLE);
-                }else {
-                    Snackbar.make(v, "Erro ao salvar.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
+                boolean sucesso;
+                if (clienteEditado != null) {
+                    sucesso = dao.salvar(clienteEditado.getId(), numero, fase, obs);
+                } else {
+                    sucesso = dao.salvar(numero, fase, obs);
                 }
-            }
+
+                    if (sucesso) {
+                        if (numero == null || fase== null || obs== null || numero.equals("") || fase.equals("") || obs.equals("")) {
+                            Snackbar.make(v, "Preencha todos os campos por favor", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
+                        } else {
+                        //atualiza o novo cliente salvo no banco de dados e coloca no recyclerview
+                        LawyerCliente cliente = dao.retornarUltimo();
+                        if (clienteEditado != null) {
+                            adapter.atualizarCliente(cliente);
+                        } else {
+                            adapter.adicionarCliente(cliente);
+                        }
+
+                        //clear nos campos
+                        clienteEditado = null;
+                        numeroInput.setText("");
+                        faseInput.setText("");
+                        obsInput.setText("");
+
+                        Snackbar.make(v, "Salvo!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                        findViewById(R.id.includemain).setVisibility(View.VISIBLE);
+                        findViewById(R.id.includecadastro).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.fab).setVisibility(View.VISIBLE);
+                    }
+                    } else {
+                        Snackbar.make(v, "Erro ao salvar.", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
+                    }
+                }
+
         });
+
+        Intent intent = getIntent();
+        if(intent.hasExtra("cliente")){
+            findViewById(R.id.includemain).setVisibility(View.INVISIBLE);
+            findViewById(R.id.includecadastro).setVisibility(View.VISIBLE);
+            findViewById(R.id.fab).setVisibility(View.INVISIBLE);
+            clienteEditado = (LawyerCliente) intent.getSerializableExtra("cliente");
+            EditText numeroInput = (EditText) findViewById(R.id.numeroInput);
+            EditText faseInput = (EditText) findViewById(R.id.faseInput);
+            EditText obsInput = (EditText) findViewById(R.id.obsInput);
+
+            numeroInput.setText(clienteEditado.getNumero());
+            faseInput.setText(clienteEditado.getFase());
+            obsInput.setText(clienteEditado.getObs());
+
+        }
 
         configurarRecycler();
     }
@@ -94,6 +140,19 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
+    }
+
+    //Variável que guarda o cliente que será editado e um método utilitário para selecionar o item de um Spinner a partir de seu valor
+
+    private int getIndex(Spinner spinner, String myString){
+        int index = 0;
+        for(int i=0; i<spinner.getCount();i++){
+            if(spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+                index = i;
+                break;
+            }
+        }
+        return index;
     }
 
 
@@ -113,9 +172,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
