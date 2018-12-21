@@ -47,6 +47,7 @@ public class ProjetoFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
+     *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
      * @return A new instance of fragment ProjetoFragment.
@@ -80,14 +81,19 @@ public class ProjetoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_projeto, container, false);
 
         ListView listView = view.findViewById(R.id.listView);
-        final ArrayList<String> projetos = new ArrayList<String>(asList(
-                "Brain Trainner. Acerte o maior número de contas em apenas 10 sec.",
-                "Conversor de moeda. Faça a conversão de real para dolar e dolar para real.",
-                "Jogo da Velha",
-                "Pomodoro. Após estabelecer o tempo, o app irá emitir um som ao término da contagem.",
-                "Leitura dos Artigos disponibilizados no site Hacker News. WebView + SQLite. Pode demorar um pouco pois faz download do site e monta na webView.",
-                "Lawyer App. SQLite + RecyclerView. Adicionar, editar e deletar processos."));
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, projetos);
+        //final String[] projetos = getResources().getStringArray(R.array.apps);
+//        final ArrayList<String> projetos = new ArrayList<String>(asList(
+//                "Brain Trainner. Acerte o maior número de contas em apenas 10 sec.",
+//                "Conversor de moeda. Faça a conversão de real para dolar e dolar para real.",
+//                "Jogo da Velha",
+//                "Pomodoro. Após estabelecer o tempo, o app irá emitir um som ao término da contagem.",
+//                "Leitura dos Artigos disponibilizados no site Hacker News. WebView + SQLite. Pode demorar um pouco pois faz download do site e monta na webView.",
+//                "Lawyer App. SQLite + RecyclerView. Adicionar, editar e deletar processos."));
+        ArrayAdapter arrayAdapter = ArrayAdapter.createFromResource(
+                getActivity(), R.array.apps, android.R.layout.simple_list_item_1
+        );
+
+        //new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, projetos);
 
         listView.setAdapter(arrayAdapter);
 
@@ -117,7 +123,7 @@ public class ProjetoFragment extends Fragment {
                 }
 
 
-                Toast.makeText(getContext(), projetos.get(position), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), projetos.get(position), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -164,3 +170,4 @@ public class ProjetoFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 }
+

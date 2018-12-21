@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,6 +29,7 @@ public class AppNews extends AppCompatActivity {
     ArrayList<String> titlesArray = new ArrayList<>();
     ArrayList<String> contentArray = new ArrayList<>();
     SQLiteDatabase articlesDataBase;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class AppNews extends AppCompatActivity {
         articlesDataBase = this.openOrCreateDatabase("Articles", MODE_PRIVATE, null);
         articlesDataBase.execSQL("CREATE TABLE IF NOT EXISTS articles (id INTEGER PRIMARY KEY, articleId, INTEGER, title VARCHAR, contentHtml VARCHAR)");
 
-
+        progressBar = (ProgressBar) findViewById(R.id.progressBar2);
 
         DownloadTask task = new DownloadTask();
         try {
@@ -66,6 +68,8 @@ public class AppNews extends AppCompatActivity {
 
     }
 
+
+
     public void updateListView() {
         Cursor c = articlesDataBase.rawQuery("SELECT * FROM articles", null);
 
@@ -89,6 +93,14 @@ public class AppNews extends AppCompatActivity {
     }
 
     public class DownloadTask extends AsyncTask<String, Void, String> {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+
+        }
 
         @Override
         protected String doInBackground(String... urls) {
@@ -117,9 +129,9 @@ public class AppNews extends AppCompatActivity {
 
                 JSONArray jsonArray = new JSONArray(result);
 
-                int numberOfItems = 20;
+                int numberOfItems = 1;
 
-                if (jsonArray.length() < 20) {
+                if (jsonArray.length() < 1) {
                     numberOfItems = jsonArray.length();
                 }
 
@@ -188,6 +200,7 @@ public class AppNews extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            progressBar.setVisibility(View.GONE);
 
             updateListView();
         }

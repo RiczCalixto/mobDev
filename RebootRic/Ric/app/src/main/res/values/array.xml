@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="apps">
+        <item>Brain Trainner. Acerte o maior número de contas em apenas 10 sec.</item>
+        <item>Conversor de moeda. Faça a conversão de real para dolar e dolar para real.</item>
+        <item>Jogo da Velha</item>
+        <item>Pomodoro. Após estabelecer o tempo, o app irá emitir um som ao término da contagem.</item>
+        <item>Leitura dos Artigos disponibilizados no site Hacker News. WebView + SQLite. Pode demorar um pouco pois faz download do site e monta na webView.</item>
+        <item>Lawyer App. SQLite + RecyclerView. Adicionar, editar e deletar processos.</item>
+    </array>
+</resources>
