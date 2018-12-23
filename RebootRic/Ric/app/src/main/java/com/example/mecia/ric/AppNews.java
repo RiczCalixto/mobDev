@@ -200,9 +200,8 @@ public class AppNews extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            progressBar.setVisibility(View.GONE);
-
             updateListView();
+            progressBar.setVisibility(View.GONE);
         }
     }
 }
